@@ -49,10 +49,12 @@ http://qiita.com/items/9dd797f42e7bea674705
 #### 動作確認
 
 使っているrubyのバージョンの確認
+
     $ rbenv version
     $ ruby -v
 
 その他のコマンドも確認
+
     $ gem -v
     $ irb -v    
 
