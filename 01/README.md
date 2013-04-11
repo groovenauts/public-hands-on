@@ -17,12 +17,12 @@ Groovenautsのサーバ製品にはRubyによって拡張できるものがあ�
 講義スタイルだけではわからない部分もみんなでハンズオンで試してみれば
 うまくいったとかいかないとかよく分かります。
 
-なので、楽しくみんなでいじってみましょう。
+ひとまず触ってみましょう。
 
 
 # アジェンダ
 
-17:00 - 18:00 Rubyのインストール ( インストール方法は[こちら](https://github.com/groovenauts/public-hands-on/blob/master/install/README.md) )
-18:00 - 18:10 Rubyの概要の話
-18:10 - 18:30 デモ#1
-18:30 - 18:45 クラスのドキュメントの説明
+* 17:00 - 18:00 Rubyのインストール ( インストール方法は[こちら](https://github.com/groovenauts/public-hands-on/blob/master/install/README.md) )
+* 18:00 - 18:10 Rubyの概要の話
+* 18:10 - 18:30 デモ#1
+* 18:30 - 18:45 クラスのドキュメントの説明

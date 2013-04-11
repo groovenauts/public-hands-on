@@ -80,10 +80,14 @@ Ctrl+CでWebサーバを停止できます。
 ### ターミナル1で実行
 
     $ ruby druby_server.rb
-    druby://cloud-dev-6:53845
+    druby://cloud-dev-6:53845 # ここをコピー
 
 
-### ターミナル1で出力された結果をコピペして
+### 最後の引数にターミナル1で出力された結果をコピペして実行
+
+    $ ruby druby_client.rb [ペースト]
+
+こんな感じ
 
     $ ruby druby_client.rb druby://localhost:53845
     
