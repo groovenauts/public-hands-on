@@ -7,8 +7,22 @@ Rubyとの付き合い方
 
 [設計思想](http://ja.wikipedia.org/wiki/Ruby#.E8.A8.AD.E8.A8.88.E6.80.9D.E6.83.B3)
 
+# 今回のネタ
 
-# お手軽さ
+[githubのリポジトリ](https://github.com/groovenauts/public-hands-on) に公開されています。
+
+    * [ソースコードをダウンロード](https://github.com/groovenauts/public-hands-on/archive/master.zip)
+    * 解凍
+
+    $ wget https://github.com/groovenauts/public-hands-on/archive/master.zip
+    $ unzip master.zip
+
+カレントディレクトリを01に移動しましょう。
+
+    $ cd public-hands-on-master/01
+
+
+# 試してみよう
 
 インタプリタなので簡単に試せるし、正規表現やちょっと複雑なデータ構造も簡単に書けます。
 
@@ -33,17 +47,20 @@ Rubyとの付き合い方
 
     $ gem install rack
 
-gemでライブラリを簡単にインストール。
-
+gemコマンドでライブラリを簡単にインストールできます。
 rackはwebサーバのための共通インタフェースを定義するフレームワークです。
+このrackを使ってHTTPサーバを構築してみましょう。
 
-    $ irb
-    irb> require 'rack'
-    irb> Signal.trap(:INT){ exit! }
-    irb> my_rack_proc = lambda { |env| [200, {"Content-Type" => "text/plain"}, ["Hello. The time is #{Time.now}"]] }
-    irb> Rack::Handler::WEBrick.run my_rack_proc, Port: 9876
+http_server.rb の中身はこれだけです。
 
-お手軽にHTTPを起動できます。
+    require 'rack'
+    Signal.trap(:INT){ exit! }
+    my_rack_proc = lambda { |env| [200, {"Content-Type" => "text/plain"}, ["Hello. The time is #{Time.now}"]] }
+    Rack::Handler::WEBrick.run my_rack_proc, Port: 9876
+
+このHTTPサーバの起動も簡単です。
+
+    $ ruby http_server.rb
 
 ブラウザで http://localhost:9876 にアクセスしてみると、現在の時刻が表示されます。
 リロードすると時刻が更新されるはず。
@@ -58,22 +75,23 @@ Ctrl+CでWebサーバを停止できます。
 
 サーバとなるRubyのプロセスのオブジェクトのメソッドを、別のプロセスから呼び出すことができます。
 
-
-
+まず２つターミナルを起動します。
 
 ### ターミナル1で実行
 
-
-### ターミナル2で実行
-
-```
-require 'drb/drb'
-there = DRbObject.new_with_uri('druby://localhost:12345')
-there.puts('Hello, World.')
-```
+    $ ruby druby_server.rb
+    druby://cloud-dev-6:53845
 
 
-### 他の例
+### ターミナル1で出力された結果をコピペして
+
+    $ ruby druby_client.rb druby://localhost:53845
+    
+
+ターミナル1の方にメッセージが出たら、このソースコードを見てみましょう。
+
+
+### 他のプロセス間通信の例
 
 * [Java RMIの例](http://e-class.center.yuge.ac.jp/jdk_docs/ja/technotes/guides/rmi/hello/hello-world.html)
 

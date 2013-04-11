@@ -1,5 +1,3 @@
 require 'drb/drb'
-
-there = DRbObject.new_with_uri('druby://localhost:12345')
-
+there = DRbObject.new_with_uri(ARGV.first)
 there.puts('Hello, World.')
