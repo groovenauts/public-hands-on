@@ -56,6 +56,6 @@
 
 実行例
 
-    irb> janken ["saishu", "mee", "nobushino"]
-    mee, nobushino won
+    irb> janken ["saishu", "mee", "shoji", "nobushino"]
+    mee, shoji, nobushino won
 
