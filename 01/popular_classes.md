@@ -16,8 +16,6 @@ Rubyの主要なクラスとリテラル
     int x = 7;
     string s = "hello";
 
-』
-
 
 [リテラル - Wikipedia](http://ja.wikipedia.org/wiki/リテラル) より引用
 
