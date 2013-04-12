@@ -19,10 +19,12 @@
       ...
     end
 
-    m1 = poi
-    # => :goo # poiがぐーを返したら
-    atodashi(m1)
-    # => :paa # atodashiはパーを出す
+実行例
+
+    irb> m1 = poi
+    #=> :goo # poiが:gooを返したら
+    irb> atodashi(m1)
+    #=> :paa # atodashiは:paaを返す
 
 いろいろな書き方ができると思いますが、できるだけシンプルに書いてみましょう。
 
