@@ -25,6 +25,12 @@ rubyのインストールを簡単にやってくれるツールです。いろ�
     $ brew install rbenv
     $ brew install ruby-build
 
+PATHに $HOME/.rbenv/bin を追加して、 rbenv initを実行するように。
+
+    $ echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bash_profile
+    $ echo 'eval "$(rbenv init -)"' >> ~/.bash_profile
+
+
 #### 動作確認
 
     $ rbenv
