@@ -191,6 +191,12 @@ Rubyの内部で使われるメソッド名、変数名などの色々な名前�
 
     [1,1,2,3,5,8,13,21].each{|n| puts n}
 
+あるいは
+
+    [1,1,2,3,5,8,13,21].each do |n|
+      puts n
+    end
+
 ### 一部を抽出
 
     a = [1,1,2,3,5,8,13,21]
@@ -208,9 +214,16 @@ Rubyの内部で使われるメソッド名、変数名などの色々な名前�
     a.first
     a.last
 
+
 ### 他の使い方
 
-    スタックやキューのような使い方もできます。    
+    [10, 3, 30, 15].sort # 並び替え
+    ["a", "b", "c"].join(", ") # 要素を結合
+    [1,2,3,1,2,5].uniq # 重複したものを除去 
+
+
+詳しくは[こちら](http://doc.ruby-lang.org/ja/2.0.0/class/Array.html)をご覧ください
+
 
 
 ### ハッシュ
@@ -235,11 +248,30 @@ Rubyの内部で使われるメソッド名、変数名などの色々な名前�
     m[:foo] = 100
     m[:baz] = 200
 
-キーや値はシンボルや整数でなくてもOKです
+キーや値はシンボルや整数でなくてもOKです。
 
     m["hoge"] = "HOGE"
     m[:now] = Time.now
     m[100] = "handred"
+
+キーや値だけを取得することもできます。
+
+    m.keys # キーだけ取得
+    m.values # 値だけ取得
+
+### 繰り返し
+
+    m.each do |key, value|
+      puts "#{key} : #{value}"
+    end
+
+### その他
+
+    {foo: 1, bar: 2, baz: 3}.invert # キーと値を入れ替え
+
+詳しくは [こちら](http://doc.ruby-lang.org/ja/2.0.0/class/Hash.html) をご覧ください
+
+値が重複した場合のinvertが気になる方は [こちら](http://doc.ruby-lang.org/ja/2.0.0/class/Hash.html#I_INVERT) もどうぞ
 
 
 ## 範囲オブジェクト
