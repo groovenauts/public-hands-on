@@ -20,6 +20,7 @@ http://mxcl.github.io/homebrew/
 
 rubyのインストールを簡単にやってくれるツールです。いろんなバージョンを入れたい場合にも便利。
 
+    $ brew install git
     $ brew update
     $ brew install openssl readline libyaml autoconf
     $ brew install rbenv
