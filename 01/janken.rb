@@ -1,4 +1,4 @@
-
+# Q1
 
 def poi
   [:goo, :choki, :paa].shuffle[0]
@@ -13,6 +13,8 @@ ATODASHI = {
 def atodashi(hand)
   ATODASHI[hand]
 end
+
+# Q2
 
 def judge(a, b)
   return 0 if a == b
@@ -36,6 +38,16 @@ def janken(person1, person2)
 end
 
 
+# Q3
+
+# copied from http://doc.ruby-lang.org/ja/2.0.0/class/Hash.html#I_INVERT
+def safe_invert(orig_hash)
+  result = Hash.new{|h,key| h[key] = [] }
+  orig_hash.each{|key, value|
+    result[value] << key
+  }
+  result
+end
 
 def janken(people)
   hands = {}
@@ -45,7 +57,17 @@ def janken(people)
   if hands.values.uniq.sort == [:choki, :goo, :paa]
     return "draw"
   end
-
-  
+  if hands.values.uniq.length == 1
+    return "draw"
+  end
+  inversed = safe_invert(hands)
+  winners =
+    case inversed.keys.sort
+    when [:choki, :goo] then inversed[:goo  ]
+    when [:choki, :paa] then inversed[:choki]
+    when [:goo  , :paa] then inversed[:paa  ]
+    else
+      puts inversed.keys.inspect
+    end
+  winners.join(", ") + " won"
 end
-
