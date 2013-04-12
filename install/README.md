@@ -43,13 +43,13 @@ http://qiita.com/items/9dd797f42e7bea674705
 
     $ rbenv install -l
 
-2.0.0-p0をインストール
+2.0.0-devをインストール
 
-    $ rbenv install 2.0.0-p0
+    $ rbenv install 2.0.0-dev
 
-2.0.0-p0を使うように切り替え
+2.0.0-devを使うように切り替え
 
-    $ rbenv global 2.0.0-p0
+    $ rbenv global 2.0.0-dev
 
 
 #### 動作確認
@@ -62,7 +62,7 @@ http://qiita.com/items/9dd797f42e7bea674705
 その他のコマンドも確認
 
     $ gem -v
-    $ irb -v    
+    $ irb -v
 
 #### その他のコマンド
 
