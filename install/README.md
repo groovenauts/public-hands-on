@@ -30,6 +30,10 @@ PATHに $HOME/.rbenv/bin を追加して、 rbenv initを実行するように�
     $ echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bash_profile
     $ echo 'eval "$(rbenv init -)"' >> ~/.bash_profile
 
+設定を有効にするために、以下のコマンドを実行するか、ターミナルを再起動してください。
+
+    $ exec $SHELL -l
+
 
 #### 動作確認
 
