@@ -22,7 +22,10 @@ Groovenautsのサーバ製品にはRubyによって拡張できるものがあ�
 
 # アジェンダ
 
-* 17:00 - 18:00 Rubyのインストール ( インストール方法は[こちら](https://github.com/groovenauts/public-hands-on/blob/master/install/README.md) )
-* 18:00 - 18:10 Rubyの概要の話
-* 18:10 - 18:30 デモ#1
-* 18:30 - 18:45 クラスのドキュメントの説明
+* 17:00 - 18:00 [Rubyのインストール](https://github.com/groovenauts/public-hands-on/blob/master/install/README.md)
+
+* 18:00 - 18:15 [Rubyの概要](https://github.com/groovenauts/public-hands-on/blob/master/01/ruby_overview.md)
+* 18:15 - 18:45 [メソッドと制御構造](https://github.com/groovenauts/public-hands-on/blob/master/01/method_and_control.md)
+* 18:45 - 19:30 [主要なクラスとリテラル](https://github.com/groovenauts/public-hands-on/blob/master/01/popular_classes.md)
+* 19:30 - 19:50 [練習問題](https://github.com/groovenauts/public-hands-on/blob/master/01/exercise.md)
+* 19:50 - 20:00 まとめ
