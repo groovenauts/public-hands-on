@@ -61,8 +61,19 @@ With serverspec, you can write RSpec tests for checking your servers are provisi
 * Vagrant-1.0.7 or 1.1.x
 * VirtualBox 最新版推奨
 
+[VirtualBoxダウンロード](https://www.virtualbox.org/wiki/Downloads)
+
 Vagrant の [Getting Started](http://docs.vagrantup.com/v2/getting-started/project_setup.html) を参考に
 http://www.vagrantbox.es/ からお手持ちの環境に合う CentOS 6.4 をインストールしてきてください。
+以下はインストールの例になります。
+
+```
+# vagrantのインストール
+gem install vagrant
+
+# CentOS 6.4 (64bit) のイメージをインストール
+vagrant box add cent64 http://puppet-vagrant-boxes.puppetlabs.com/centos-64-x64-vbox4210-nocm.box
+```
 
 ## Ruby
 
