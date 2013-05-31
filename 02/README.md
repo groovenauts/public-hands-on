@@ -53,6 +53,19 @@ With serverspec, you can write RSpec tests for checking your servers are provisi
 
 # 事前準備
 
+## Ruby
+
+またserverspecを動かすためにはRubyが必要ですので、Rubyのインストールもお願いします。
+
+[Rubyのインストール](https://github.com/groovenauts/public-hands-on/blob/master/install/README.md)
+
+## Chef と knife-solo
+
+```
+gem install chef
+gem install knife-solo
+```
+
 ## Vagrant
 
 当日のハンズオンでは、VagrantからVirtualBox上の仮想サーバを起動してサーバのセットアップと
@@ -72,12 +85,6 @@ gem install vagrant
 # CentOS 6.4 (64bit) のイメージをインストール
 vagrant box add cent64 http://puppet-vagrant-boxes.puppetlabs.com/centos-64-x64-vbox4210-nocm.box
 ```
-
-## Ruby
-
-またserverspecを動かすためにはRubyが必要ですので、Rubyのインストールもお願いします。
-
-[Rubyのインストール](https://github.com/groovenauts/public-hands-on/blob/master/install/README.md)
 
 ## Opscode Community のアカウント
 
