@@ -53,21 +53,32 @@ With serverspec, you can write RSpec tests for checking your servers are provisi
 
 # 事前準備
 
+## Vagrant
+
 当日のハンズオンでは、VagrantからVirtualBox上の仮想サーバを起動してサーバのセットアップと
 そのテストを行いますので、参加される皆様はその事前準備をお願いします。
 
 * Vagrant-1.0.7 or 1.1.x
 * VirtualBox 最新版推奨
 
-
 Vagrant の [Getting Started](http://docs.vagrantup.com/v2/getting-started/project_setup.html) を参考に
-http://www.vagrantbox.es/ からお手持ちの環境に合う CentOS 6.3 or 6.4 をインストールしてきてください。
+http://www.vagrantbox.es/ からお手持ちの環境に合う CentOS 6.4 をインストールしてきてください。
 
+## Ruby
 
 またserverspecを動かすためにはRubyが必要ですので、Rubyのインストールもお願いします。
 
 [Rubyのインストール](https://github.com/groovenauts/public-hands-on/blob/master/install/README.md)
 
+## Opscode Community のアカウント
+
+[Opscode Communityのホームページ](http://community.opscode.com/) でアカウントを作成してください
+サインアップ後にprivate keyを取得して以下のファイルを作成してください
+
+```
+$ vi ~/.chef/ユーザ名.pem # ローカルマシンのログインユーザ名に合わせておくと良いと思います
+$ chmod 600 ~/.chef/ユーザ名.pem
+```
 
 # アジェンダ
 
@@ -76,6 +87,6 @@ http://www.vagrantbox.es/ からお手持ちの環境に合う CentOS 6.3 or 6.4
 
 * 17:00 - 18:00 （仮想サーバのセットアップの時間）
 
-* 18:00 - 18:20 Groovenauts渕上 Chefとserverspecの概要
-* 18:20 - 19:40 Groovenauts渕上 ハンズオン
+* 18:00 - 18:20 Groovenauts 渕上 Chefとserverspecの概要
+* 18:20 - 19:40 Groovenauts 渕上 ハンズオン
 * 19:40 - 20:00 10x Lab 春山さん "chef-soloを使ったミニマムなスタートの仕方(仮)"
