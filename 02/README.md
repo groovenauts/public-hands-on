@@ -59,11 +59,12 @@ With serverspec, you can write RSpec tests for checking your servers are provisi
 
 [Rubyのインストール](https://github.com/groovenauts/public-hands-on/blob/master/install/README.md)
 
-## Chef と knife-solo
+## Chef と knife-solo と serverspec
 
 ```
 gem install chef
 gem install knife-solo
+gem install serverspec
 ```
 
 ## Vagrant
