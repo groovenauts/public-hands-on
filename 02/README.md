@@ -104,6 +104,6 @@ $ chmod 600 ~/.chef/ユーザ名.pem
 
 * 17:00 - 18:00 （仮想サーバのセットアップの時間）
 
-* 18:00 - 18:20 Groovenauts 渕上 Chefとserverspecの概要
-* 18:20 - 19:40 Groovenauts 渕上 ハンズオン
+* 18:00 - 18:20 Groovenauts 渕上 [Chefとserverspecの概要](https://github.com/groovenauts/public-hands-on/blob/master/02/overview.md)
+* 18:20 - 19:40 Groovenauts 渕上 [ハンズオン](https://github.com/groovenauts/public-hands-on/blob/master/02/hands_on.md)
 * 19:40 - 20:00 10x Lab 春山さん "chef-soloを使ったミニマムなスタートの仕方(仮)"
