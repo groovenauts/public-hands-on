@@ -22,24 +22,28 @@ Overview
 [Ohai Trail](http://www.flickr.com/photos/sheilakaymcintyre/8358416747/)
 
 Ohai detects data about your operating system. It can be used standalone, but it’s primary purpose is to provide node data to Chef.
+
 [opscode/ohai](https://github.com/opscode/ohai) より
 
 ## Vagrant
 
 Oracle VirtualBoxを利用した仮想マシンをコマンドラインから作成してくれるソフトウェア
 設定ファイルをRubyで書くことができ、Chef等とも連携できるので、開発環境をコマンドライン一発で作成することが出来る
+
 [Vagrantで簡単仮想マシン構築](http://www.ryuzee.com/contents/blog/4292) より
 
 VMware Fusion に対応したり、EC2 に対応したりと色々出来るようになっています
+
 [Vagrant コトハジメ](https://gist.github.com/voluntas/5525719) より
 
 ## Chef
 
 Infrastructure as Code
 Chef はサーバ設定や更新を自動化するツールです。より凝った言い方をすると「サーバの環境のメタデータを管理しノードの役割・状態を収束させるオペレーションフレームワーク」です。
+
 [入門Chef Solo - Infrastructure as Code](http://www.amazon.co.jp/%E5%85%A5%E9%96%80Chef-Solo-Infrastructure-Code-ebook/dp/B00BSPH158) より
 
-また、 [中級者以上向けの説明](http://www.slideshare.net/YukihikoSawanobori/what-is-chef201303) がSlideShareにありますので、参考にしてください
+また、 [中級者以上向けの説明](http://www.slideshare.net/YukihikoSawanobori/what-is-chef201303) を公開してくださっている方がいますので、参考にしてください
 
 ### Chef Solo
 
@@ -60,4 +64,4 @@ knife-solo adds a handful of commands that aim to make working with chef-solo as
 
 ## serverspec
 
-[Resource Types](http://serverspec.org/resource_types.html)
+[Resource Types](http://serverspec.org/resource_types.html) を見てみましょう
