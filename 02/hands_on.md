@@ -159,7 +159,7 @@ chmod 600 ~/.chef/taigou.pem
 client_key '/Users/taigou/.chef/taigou.pem'
 
 # cookbook_pathの追加
-echo "cookbook_path [ './cookbooks ' ]" >> ~/.chef/knife.rb
+echo "cookbook_path [ './cookbooks' ]" >> ~/.chef/knife.rb
 ```
 
 #### knifeでjavaクックブックの取得
@@ -167,7 +167,7 @@ echo "cookbook_path [ './cookbooks ' ]" >> ~/.chef/knife.rb
 ```
 cd ~/gn-public-hands-on/chef-hadoop
 git status # コミットしていないものがあったらコミットしてください
-knife cookbooks site vendor java
+knife cookbook site vendor java
 ```
 
 #### run_listに追加
