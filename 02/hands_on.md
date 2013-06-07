@@ -47,18 +47,27 @@
 
 ### 仮想マシンの起動
 
+#### Vagrant用に任意のディレクトリを作成して移動
+
 ```
-# Vagrant用に任意のディレクトリを作成して移動
 # ディレクトリ名はご自由に
 mkdir -p ~/gn-public-hands-on/vagrant && cd $_
+```
 
-# CentOS 6.4 (64bit) のイメージをインストール
+#### CentOS 6.4 (64bit) のイメージをインストール
+
+```
 # vagrant box add cent64 http://puppet-vagrant-boxes.puppetlabs.com/centos-64-x64-vbox4210-nocm.box
 # が既に行われていること
 vagrant init cent64
+```
 
-# ブリッジネットワークとします
+#### ブリッジネットワークとします
+
+```
 perl -p -i.bak -e 's/# config.vm.network :bridged/config.vm.network :bridged/' Vagrantfile
+
+# 念のため違いを確認しておきましょう
 diff Vagrantfile Vagrantfile.bak
 28c28
 <   config.vm.network :bridged
@@ -73,8 +82,11 @@ diff Vagrantfile Vagrantfile.bak
 #    vm.name = "hadoop-pseudo"
 #  end
 # end
+```
 
-# 仮想マシンを起動
+#### 仮想マシンを起動
+
+```
 vagrant up
 ```
 
@@ -128,26 +140,36 @@ git commit -m "create hadoop-pseudo cookbook."
 
 ### JDKセットアップ用のCookbookをダウンロードして使えるようにする
 
+#### Opscode Community (http://community.opscode.com/)にサインアップして、秘密鍵をダウンロードし、~/.chef配下に保存
+
 ```
-# Opscode Community (http://community.opscode.com/)にサインアップして、
-# 秘密鍵をダウンロードし、~/.chef配下に保存
 # ファイル名は各自読み替えてください
 mv ~/Downloads/taigou.pem ~/.chef/
 chmod 600 ~/.chef/taigou.pem
+```
 
-# knifeの設定ファイルを編集
+#### knifeの設定ファイル(~/.chef/knife.rb)を編集
+
+```
 # 秘密鍵のファイル名は各自読み替えてください
 # client_key を必要であれば修正してください
 client_key '/Users/taigou/.chef/taigou.pem'
+
 # cookbook_pathの追加
 echo "cookbook_path [ './cookbooks ' ]" >> ~/.chef/knife.rb
+```
 
-# knifeでjavaクックブックの取得
+#### knifeでjavaクックブックの取得
+
+```
 cd ~/gn-public-hands-on
 git status # コミットしていないものがあったらコミットしてください
 knife cookbook site vendor java
+```
 
-# run_listに追加
+#### run_listに追加
+
+```
 vi nodes/hadoop-pseudo.json
 {
   "java" : {
@@ -182,8 +204,11 @@ Input vagrant instance name: hadoop-pseudo
  + spec/hadoop-pseudo/httpd_spec.rb
  + spec/spec_helper.rb
  + Rakefile
+```
 
-# httpd_spec.rbがデフォルトで作成されるのでファイル名変更
+#### httpd_spec.rbがデフォルトで作成されるのでファイル名変更
+
+```
 git add .
 git mv spec/hadoop-pseudo/httpd_spec.rb spec/hadoop-pseudo/hadoop-pseudo_spec.rb
 git commit -m "initialize serverspec."
@@ -197,7 +222,7 @@ git add .
 git commit -m "write serverspec."
 ```
 
-[serverspec_for_hadoop-pseudo](https://github.com/groovenauts/public-hands-on/blob/master/02/hadoop-pseudo_spec.rb)
+[serverspec_for_hadoop-pseudo](https://github.com/groovenauts/public-hands-on/blob/master/02/hadoop-pseudo_spec.rb) の内容を記述してください
 
 ### テストが失敗することを確認
 
@@ -217,7 +242,7 @@ git add .
 git commit -m "write recipe."
 ```
 
-[recipe_for_hadoop-pseudo](https://github.com/groovenauts/public-hands-on/blob/master/02/recipe_for_hadoop-pseudo.rb)
+[recipe_for_hadoop-pseudo](https://github.com/groovenauts/public-hands-on/blob/master/02/recipe_for_hadoop-pseudo.rb) の内容を記述してください
 
 ### レシピを適用
 
