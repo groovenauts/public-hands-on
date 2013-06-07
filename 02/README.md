@@ -53,6 +53,10 @@ With serverspec, you can write RSpec tests for checking your servers are provisi
 
 # 事前準備
 
+Macへのインストールを前提に事前準備の手順を記述しています
+
+Windowsへの事前準備の手順は [Installing Chef Client on Windows](http://wiki.opscode.com/display/chef/Installing+Chef+Client+on+Windows) を参考に行なってください
+
 ## Ruby
 
 またserverspecを動かすためにはRubyが必要ですので、Rubyのインストールもお願いします。
