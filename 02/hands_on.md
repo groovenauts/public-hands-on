@@ -142,7 +142,7 @@ git commit -m "create hadoop-pseudo cookbook."
 
 ### JDKセットアップ用のCookbookをダウンロードして使えるようにする
 
-#### [Opscode Community)]http://community.opscode.com/) にサインインして秘密鍵をダウンロードし、~/.chef配下に保存
+#### [Opscode Community](http://community.opscode.com/) にサインインして秘密鍵をダウンロードし、~/.chef配下に保存
 
 ```
 # ファイル名は各自読み替えてください
