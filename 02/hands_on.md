@@ -165,7 +165,7 @@ echo "cookbook_path [ './cookbooks ' ]" >> ~/.chef/knife.rb
 #### knifeでjavaクックブックの取得
 
 ```
-cd ~/gn-public-hands-on
+cd ~/gn-public-hands-on/chef-hadoop
 git status # コミットしていないものがあったらコミットしてください
 knife cookbook site vendor java
 ```
