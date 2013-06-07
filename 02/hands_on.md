@@ -167,7 +167,7 @@ echo "cookbook_path [ './cookbooks ' ]" >> ~/.chef/knife.rb
 ```
 cd ~/gn-public-hands-on/chef-hadoop
 git status # コミットしていないものがあったらコミットしてください
-knife cookbook site vendor java
+knife cookbooks site vendor java
 ```
 
 #### run_listに追加
