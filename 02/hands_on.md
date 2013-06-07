@@ -48,7 +48,9 @@
 ### 仮想マシンの起動
 
 ```
-mkdir -p ~/gn-public-hands-on/vagrant && cd $_ # Vagrant用に任意のディレクトリを作成
+# Vagrant用に任意のディレクトリを作成して移動
+# ディレクトリ名はご自由に
+mkdir -p ~/gn-public-hands-on/vagrant && cd $_
 
 # CentOS 6.4 (64bit) のイメージをインストール
 # vagrant box add cent64 http://puppet-vagrant-boxes.puppetlabs.com/centos-64-x64-vbox4210-nocm.box
@@ -57,8 +59,13 @@ vagrant init cent64
 
 # ブリッジネットワークとします
 perl -p -i.bak -e 's/# config.vm.network :bridged/config.vm.network :bridged/' Vagrantfile
+diff Vagrantfile Vagrantfile.bak
+28c28
+<   config.vm.network :bridged
+---
+>   # config.vm.network :bridged
 
-# 必要であれば Vagrantfileを編集してください。以下はその例
+# 必要に応じて Vagrantfileを編集してください。以下はその例
 # Vagrant::Config.run do |config|
 #  .....
 #  config.vm.customize do |vm|
@@ -71,7 +78,7 @@ perl -p -i.bak -e 's/# config.vm.network :bridged/config.vm.network :bridged/' V
 vagrant up
 ```
 
-#### 仮想マシンの一時停止と削除
+#### （参考）仮想マシンの一時停止と削除
 
 ```
 $ vagrant halt    # 一時停止
@@ -91,10 +98,7 @@ ssh hadoop-pseudo
 
 ```
 knife configure
-
-vi ~/.chef/knife.rb
-knife[:solo_path] = '/tmp/chef-solo'
-
+echo "knife[:solo_path] = '/tmp/chef-solo'" >> ~/.chef/knife.rb
 ```
 
 ### リポジトリ（キッチン）の作成
@@ -111,44 +115,53 @@ git init && git add . && git commit -m 'first commit'
 ```
 knife solo prepare hadoop-pseudo
 git add nodes/hadoop-pseudo.json
-git commit -m "ass node json file"
+git commit -m "add node json file"
 ```
 
 ### Hadoop 擬似分散環境のセットアップ用Cookbookの作成
 
 ```
 knife cookbook create hadoop-pseudo -o site-cookbooks
+git add .
+git commit -m "create hadoop-pseudo cookbook."
 ```
 
 ### JDKセットアップ用のCookbookをダウンロードして使えるようにする
 
 ```
-# Opscode Community にサインアップして、秘密鍵を取得し以下のファイルに保存
+# Opscode Community (http://community.opscode.com/)にサインアップして、
+# 秘密鍵をダウンロードし、~/.chef配下に保存
 # ファイル名は各自読み替えてください
-vi ~/.chef/taigou.pem
+mv ~/Downloads/taigou.pem ~/.chef/
 chmod 600 ~/.chef/taigou.pem
 
 # knifeの設定ファイルを編集
 # 秘密鍵のファイル名は各自読み替えてください
-vi ~/.chef/knife.rb
+# client_key を必要であれば修正してください
 client_key '/Users/taigou/.chef/taigou.pem'
-cookbook_path [ './cookbooks ' ]
+# cookbook_pathの追加
+echo "cookbook_path [ './cookbooks ' ]" >> ~/.chef/knife.rb
 
 # knifeでjavaクックブックの取得
 cd ~/gn-public-hands-on
 git status # コミットしていないものがあったらコミットしてください
 knife cookbook site vendor java
 
-# ブランチが切られて、コミットされるので
-git status
-git branch
-git checkout master
-git merge ....
-git add .
-git commit -m ""
-
 # run_listに追加
 vi nodes/hadoop-pseudo.json
+{
+  "java" : {
+    "jdk_version" : "6",
+    "install_flavor" : "oracle",
+    "java_home" : "/usr/java/default",
+    "oracle" : { "accept_oracle_download_terms" : true }
+  },
+
+  "run_list":["java", "hadoop-pseudo"]
+}
+
+git add nodes/hadoop-pseudo.json
+git commit -m "add java cookbook."
 ```
 
 ### serverspecの初期設定
@@ -171,9 +184,9 @@ Input vagrant instance name: hadoop-pseudo
  + Rakefile
 
 # httpd_spec.rbがデフォルトで作成されるのでファイル名変更
-git mv spec/hadoop-pseudo/httpd_spec.rb spec/hadoop-pseudo/hadoop-pseudo_spec.rb
 git add .
-git commit -m ""
+git mv spec/hadoop-pseudo/httpd_spec.rb spec/hadoop-pseudo/hadoop-pseudo_spec.rb
+git commit -m "initialize serverspec."
 ```
 
 ### serverspecに仕様の記述をおこなう
@@ -181,7 +194,7 @@ git commit -m ""
 ```
 vi spec/hadoop-pseudo/hadoop-pseudo_spec.rb
 git add .
-git commit -m ""
+git commit -m "write serverspec."
 ```
 
 [serverspec_for_hadoop-pseudo](https://github.com/groovenauts/public-hands-on/blob/master/02/hadoop-pseudo_spec.rb)
@@ -196,8 +209,12 @@ rake spec
 
 ```
 vi site-cookbooks/hadoop-pseudo/recipes/default.rb
+
+# テンプレートも用意しなければいけませんでした
+vi site-cookbooks/hadoop-pseudo/templates/default/selinux.erb
+
 git add .
-git commit -m ""
+git commit -m "write recipe."
 ```
 
 [recipe_for_hadoop-pseudo](https://github.com/groovenauts/public-hands-on/blob/master/02/recipe_for_hadoop-pseudo.rb)

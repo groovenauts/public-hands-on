@@ -1,10 +1,15 @@
 require 'spec_helper'
 
 # package
-%w(perl vim-enhanced
-   hadoop-0.20-conf-pseudo
-   hadoop-hdfs-namenode hadoop-hdfs-datanode hadoop-hdfs-secondarynamenode
-   hadoop-0.20-mapreduce-jobtracker hadoop-0.20-mapreduce-tasktracker
+%w(
+  perl
+  vim-enhanced
+  hadoop-0.20-conf-pseudo
+  hadoop-hdfs-namenode
+  hadoop-hdfs-datanode
+  hadoop-hdfs-secondarynamenode
+  hadoop-0.20-mapreduce-jobtracker
+  hadoop-0.20-mapreduce-tasktracker
   ).each do |pkg|
 
   describe package(pkg) do
@@ -27,11 +32,15 @@ describe selinux do
 end
 
 # service
-%w(hadoop-hdfs-namenode hadoop-hdfs-datanode hadoop-hdfs-secondarynamenode
-   hadoop-0.20-mapreduce-jobtracker hadoop-0.20-mapreduce-tasktracker
-  ).each do |service|
+%w(
+  hadoop-hdfs-namenode
+  hadoop-hdfs-datanode
+  hadoop-hdfs-secondarynamenode
+  hadoop-0.20-mapreduce-jobtracker
+  hadoop-0.20-mapreduce-tasktracker
+  ).each do |s|
 
-  describe service(service) do
+  describe service(s) do
     it { should be_enabled }
     it { should be_running }
   end
