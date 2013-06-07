@@ -29,6 +29,10 @@ or
 
 or
 
+['Ohai : Smanea Saman](http://hawaiianquilt.blog.ocn.ne.jp/blog/2011/10/ohai.html)
+
+or
+
 Ohai detects data about your operating system. It can be used standalone, but it’s primary purpose is to provide node data to Chef.
 
 [opscode/ohai](https://github.com/opscode/ohai) より
