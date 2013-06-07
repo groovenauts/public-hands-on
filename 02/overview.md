@@ -17,6 +17,10 @@ Overview
 
 ## Ohai
 
+[Ohai](http://en.wikipedia.org/wiki/Ohai)
+
+or
+
 [ohai!](http://www.urbandictionary.com/define.php?term=ohai!)
 
 or
