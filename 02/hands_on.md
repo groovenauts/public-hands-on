@@ -47,7 +47,7 @@
 13. serverspecで正しくセットアップが行われたことを確認
 ```
 
-### 仮想マシンの起動
+### 1. 仮想マシンの起動
 
 #### Vagrant用に任意のディレクトリを作成して移動
 
@@ -99,7 +99,7 @@ $ vagrant halt    # 一時停止
 $ vagrant destroy # 削除
 ```
 
-### 仮想マシンへのSSH接続設定
+### 2. 仮想マシンへのSSH接続設定
 
 今回はホスト名を、「hadoop-pseud」とします
 
@@ -108,14 +108,14 @@ vagrant ssh-config --host hadoop-pseudo >> ~/.ssh/config
 ssh hadoop-pseudo
 ```
 
-### knife の初期設定
+### 3. knife の初期設定
 
 ```
 knife configure
 echo "knife[:solo_path] = '/tmp/chef-solo'" >> ~/.chef/knife.rb
 ```
 
-### リポジトリ（キッチン）の作成
+### 4. リポジトリ（キッチン）の作成
 
 ```
 cd ~/gn-public-hands-on
@@ -124,7 +124,7 @@ cd chef-hadoop
 git init && git add . && git commit -m 'first commit'
 ```
 
-### 仮想マシン側のChefの設定
+### 5. 仮想マシン側のChefの設定
 
 ```
 knife solo prepare hadoop-pseudo
@@ -132,7 +132,7 @@ git add nodes/hadoop-pseudo.json
 git commit -m "add node json file"
 ```
 
-### Hadoop 擬似分散環境のセットアップ用Cookbookの作成
+### 6. Hadoop 擬似分散環境のセットアップ用Cookbookの作成
 
 ```
 knife cookbook create hadoop-pseudo -o site-cookbooks
@@ -140,7 +140,7 @@ git add .
 git commit -m "create hadoop-pseudo cookbook."
 ```
 
-### JDKセットアップ用のCookbookをダウンロードして使えるようにする
+### 7. JDKセットアップ用のCookbookをダウンロードして使えるようにする
 
 #### [Opscode Community](http://community.opscode.com/) にサインインして秘密鍵をダウンロードし、~/.chef配下に保存
 
@@ -188,7 +188,7 @@ git add nodes/hadoop-pseudo.json
 git commit -m "add java cookbook."
 ```
 
-### serverspecの初期設定
+### 8. serverspecの初期設定
 
 ```
 serverspec-init
@@ -216,7 +216,7 @@ git mv spec/hadoop-pseudo/httpd_spec.rb spec/hadoop-pseudo/hadoop-pseudo_spec.rb
 git commit -m "initialize serverspec."
 ```
 
-### serverspecに仕様の記述をおこなう
+### 9. serverspecに仕様の記述をおこなう
 
 ```
 vi spec/hadoop-pseudo/hadoop-pseudo_spec.rb
@@ -226,13 +226,13 @@ git commit -m "write serverspec."
 
 [serverspec_for_hadoop-pseudo](https://github.com/groovenauts/public-hands-on/blob/master/02/hadoop-pseudo_spec.rb) の内容を記述してください
 
-### テストが失敗することを確認
+### 10. テストが失敗することを確認
 
 ```
 rake spec
 ```
 
-### Hadoop 擬似分散環境のセットアップ用レシピを書く
+### 11. Hadoop 擬似分散環境のセットアップ用レシピを書く
 
 ```
 vi site-cookbooks/hadoop-pseudo/recipes/default.rb
@@ -246,13 +246,13 @@ git commit -m "write recipe."
 
 [recipe_for_hadoop-pseudo](https://github.com/groovenauts/public-hands-on/blob/master/02/recipe_for_hadoop-pseudo.rb) の内容を記述してください
 
-### レシピを適用
+### 12. レシピを適用
 
 ```
 knife solo cook hadoop-pseudo
 ```
 
-### serverspecで正しくセットアップが行われたことを確認
+### 13. serverspecで正しくセットアップが行われたことを確認
 
 ```
 rake spec
