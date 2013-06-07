@@ -18,7 +18,12 @@ Overview
 ## Ohai
 
 [ohai!](http://www.urbandictionary.com/define.php?term=ohai!)
+
+or
+
 [Ohai Trail](http://www.hawaiigaga.com/maui/attractions/ohai-trail.aspx)
+
+or
 
 Ohai detects data about your operating system. It can be used standalone, but it’s primary purpose is to provide node data to Chef.
 
