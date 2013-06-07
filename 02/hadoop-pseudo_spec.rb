@@ -35,7 +35,6 @@ end
 %w(
   hadoop-hdfs-namenode
   hadoop-hdfs-datanode
-  hadoop-hdfs-secondarynamenode
   hadoop-0.20-mapreduce-jobtracker
   hadoop-0.20-mapreduce-tasktracker
   ).each do |s|
