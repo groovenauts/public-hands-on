@@ -101,11 +101,12 @@ $ vagrant destroy # 削除
 
 ### 2. 仮想マシンへのSSH接続設定
 
-今回はホスト名を、「hadoop-pseud」とします
+今回はホスト名を、「hadoop-pseudo」とします
 
 ```
 vagrant ssh-config --host hadoop-pseudo >> ~/.ssh/config
 ssh hadoop-pseudo
+exit
 ```
 
 ### 3. knife の初期設定
