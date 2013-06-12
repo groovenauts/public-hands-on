@@ -40,6 +40,14 @@ template "/etc/selinux/config" do
   action :nothing
 end
 
+# 不要となることが多いサービスを無効化する
+%w[acpid auditd autofs avahi-daemon avahi-dnsconfd bluetooth conman cpuspeed cups dnsmasq dund gpm hidd ip6tables irda lvm2-monitor mcstrans mdmonitor multipathd pand pcscd psacct rawdevices readahead_early readahead_later restorecond saslauthd smartd wpa_supplicant ypbind yum-updatesd].each do |name|
+  service name do
+    ignore_failure true
+    action [:disable, :stop]
+  end
+end
+
 # CDH4
 remote_file "/etc/yum.repos.d/cloudera-cdh4.repo" do
   source "http://archive.cloudera.com/cdh4/redhat/6/x86_64/cdh/cloudera-cdh4.repo"
