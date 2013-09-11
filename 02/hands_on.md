@@ -162,12 +162,19 @@ client_key '/Users/taigou/.chef/taigou.pem'
 echo "cookbook_path [ './cookbooks' ]" >> ~/.chef/knife.rb
 ```
 
-#### knifeでjavaクックブックの取得
+#### Berkshelfでjavaクックブックの取得
 
 ```
 cd ~/gn-public-hands-on/chef-hadoop
 git status # コミットしていないものがあったらコミットしてください
-knife cookbook site vendor java
+gem install berkshelf
+
+vi Berksfile # 以下の行を記述
+site :opscode
+cookbook 'java'
+
+# cookbooksディレクトリ配下にインストール
+berks install --path cookbooks
 ```
 
 #### run_listに追加
