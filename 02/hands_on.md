@@ -208,6 +208,7 @@ Select a backend type:
 Select number: 1
 
 Vagrant instance y/n: y
+Auto-configure Vagrant from Vagrantfile? y/n: n
 Input vagrant instance name: hadoop-pseudo
  + spec/
  + spec/hadoop-pseudo/
